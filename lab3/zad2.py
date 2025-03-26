@@ -15,8 +15,8 @@ y_test = test_set[:, -1]
 
 clf = tree.DecisionTreeClassifier()
 clf.fit(x_train, y_train)
-# tree.plot_tree(clf)
-# plt.show()
+tree.plot_tree(clf)
+plt.show()
 predicted = clf.predict(x_test)
 len = len(predicted)
 good_predictions = 0
@@ -27,9 +27,9 @@ for i in range (len):
 print(good_predictions)
 print(good_predictions/len*100, "%")
 
-# cm = confusion_matrix(y_test, predicted, labels=np.unique(y_train))
+cm = confusion_matrix(y_test, predicted, labels=np.unique(y_train))
 
-# disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(y_train))
-# disp.plot(cmap="Blues", values_format="d")
-# plt.title("Macierz błędów")
-# plt.show()
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(y_train))
+disp.plot(cmap="Blues", values_format="d")
+plt.title("Macierz błędów")
+plt.show()
