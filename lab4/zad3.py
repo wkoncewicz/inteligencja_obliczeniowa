@@ -49,3 +49,33 @@ disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(trai
 disp.plot(cmap="Blues", values_format="d")
 plt.title("Macierz błędów")
 plt.show()
+
+mlp = MLPClassifier(hidden_layer_sizes=(3,3,), activation="relu", max_iter=500)
+mlp.fit(train_data, train_labels)
+
+print("trzy")
+predictions_test = mlp.predict(test_data)
+print(accuracy_score(predictions_test, test_labels))
+
+cm = confusion_matrix(test_labels, predictions_test, labels=np.unique(train_labels))
+
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(train_labels))
+disp.plot(cmap="Blues", values_format="d")
+plt.title("Macierz błędów")
+plt.show()
+
+mlp = MLPClassifier(hidden_layer_sizes=(3,), activation="tanh", max_iter=500)
+mlp.fit(train_data, train_labels)
+
+print("cztery")
+predictions_test = mlp.predict(test_data)
+print(accuracy_score(predictions_test, test_labels))
+
+cm = confusion_matrix(test_labels, predictions_test, labels=np.unique(train_labels))
+
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(train_labels))
+disp.plot(cmap="Blues", values_format="d")
+plt.title("Macierz błędów")
+plt.show()
+
+#Więcej jest błędów fn, fn jest gorsze, gdyż pacjenta może ominąć leczenie którego potrzebuje
