@@ -1,7 +1,7 @@
 import text2emotion as te
 import nltk
 
-nltk.download('punkt_tab')
+nltk.download('punkt')
 
 with open("review1.txt", "r", encoding="utf-8") as f1:
     review1 = f1.read()

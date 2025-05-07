@@ -6,7 +6,7 @@ from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
-nltk.download('punkt_tab')
+nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
@@ -44,7 +44,7 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 
-text_for_wordcloud = ' '.join(filtered_words)
+text_for_wordcloud = ' '.join(lemmatized_words)
 wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_for_wordcloud)
 
 plt.figure(figsize=(12, 6))
