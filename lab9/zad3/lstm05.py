@@ -9,7 +9,7 @@ from tensorflow.keras.layers import LSTM
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.utils import to_categorical
 # load ascii text and covert to lowercase
-filename = "AGoT.txt"
+filename = "agot2.txt"
 raw_text = open(filename, 'r', encoding='utf-8').read()
 raw_text = raw_text.lower()
 # create mapping of unique chars to integers
@@ -52,7 +52,7 @@ model.add(LSTM(256, input_shape=(X.shape[1], X.shape[2])))
 model.add(Dropout(0.2))
 model.add(Dense(y.shape[1], activation='softmax'))
 # load the network weights
-filename = "big-token-model-05-6.0076.keras"
+filename = "big-token-model-05-6.3117.keras"
 model.load_weights(filename)
 model.compile(loss='categorical_crossentropy', optimizer='adam')
 # pick a random seed
